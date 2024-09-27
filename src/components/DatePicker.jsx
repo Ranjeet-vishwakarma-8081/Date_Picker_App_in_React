@@ -98,51 +98,10 @@ const DatePicker = () => {
           id="interval"
           value={interval}
           onChange={(e) => setInterval(Number(e.target.value))}
+          min={1}
           className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-200"
         />
       </div>
-
-      {recurrenceType === "weekly" && (
-        <div className="mb-5">
-          <label className="block text-sm font-medium text-gray-700">
-            Specific Days of the Week
-          </label>
-          <div className="flex gap-2 mt-2 flex-wrap">
-            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
-              (day, index) => (
-                <div
-                  key={index}
-                  // onClick={() => handleSpecificDayChange(index)}
-                  className={`flex-1  text-center p-2 border rounded-md  ${
-                    specificDays.includes(index + 1)
-                      ? "bg-blue-500 text-white"
-                      : "bg-white text-gray-700 hover:bg-gray-200"
-                  } transition duration-200`}
-                >
-                  {day}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      )}
-      {/* 
-      {recurrenceType === "monthly" && (
-        <div className="mb-5">
-          <label
-            htmlFor="nth-day"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Nth Day of the Month (Optional)
-          </label>
-          <input
-            type="number"
-            id="nth-day"
-            onChange={(e) => setNthDayOfMonth(Number(e.target.value))}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-200"
-          />
-        </div>
-      )} */}
 
       <MiniCalendar
         startDate={startDate}
